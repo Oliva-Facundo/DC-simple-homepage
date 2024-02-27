@@ -1,0 +1,314 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --blue: #2a4dd0;
+  --green: #4ca154;
+  --darkblue: #111729;
+  --gray: #223344;
+  --cream: #909193;
+  --white: #ffffff;
+  --lightWhite: #f2f9fe;
+}
+
+.dark-theme {
+  --white: #111729;
+  --gray: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+body {
+  height: 100vh;
+  padding: 0 4rem;
+  background: var(--white);
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+}
+
+.logo {
+  height: 100%;
+  width: 9rem;
+  display: flex;
+  align-items: center;
+}
+
+.title-logo {
+  fill: var(--gray);
+}
+
+.navbar {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+}
+
+.item-list > a {
+  text-decoration: none;
+  color: var(--cream);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.item-list > a:hover {
+  color: var(--gray);
+}
+
+/* Menu */
+.menu,
+.close {
+  display: none;
+  border: none;
+}
+
+.hamburger {
+  height: 3px;
+  width: 1.5rem;
+  background-color: var(--gray);
+  border-radius: 2rem;
+}
+
+.cruz {
+  height: 3px;
+  width: 1.5rem;
+  background-color: #223344;
+  transform: rotate(45deg) translate(4px, 2px);
+}
+
+.cruz:nth-child(2) {
+  transform: rotate(-45deg) translate(0px, 2px);
+}
+
+/* Toggle theme */
+.theme-box > label {
+  width: 3.2rem;
+  height: 1.5rem;
+  position: relative;
+  display: block;
+  background: #223344;
+  border-radius: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.theme-box > label::after {
+  content: "";
+  width: 1.2rem;
+  height: 1.2rem;
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  transition: 0.3s;
+}
+
+#theme {
+  display: none;
+}
+
+#theme:checked + label::after {
+  left: 2.9rem;
+  transform: translateX(-100%);
+  border-radius: 5rem;
+}
+
+.moon-light {
+  display: block;
+  padding: 2px;
+}
+
+.moon-fill {
+  display: none;
+  padding: 2px;
+}
+
+#theme:checked + label > .moon-light {
+  display: none;
+}
+
+#theme:checked + label > .moon-fill {
+  display: block;
+  background: white;
+  border-radius: 5rem;
+}
+
+#theme:checked + label > .sun {
+  background: transparent;
+}
+
+#theme:checked + label > .sun > path {
+  stroke: white;
+}
+#theme:checked + label > .sun > circle {
+  fill: white;
+}
+
+.sun {
+  background: white;
+  border-radius: 5rem;
+}
+
+/* MAIN */
+main {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - 5rem);
+  padding: 4rem 0;
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-size: 1.125rem;
+  color: var(--gray);
+  width: 50%;
+}
+
+.text-box > p:first-child {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.text-box > h1 {
+  font-size: 3.75rem;
+}
+
+.text-box > p:nth-child(3) {
+  color: var(--cream);
+  font-weight: 600;
+}
+
+.btn-box {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1rem;
+}
+
+.btn {
+  background: var(--blue);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 1rem;
+}
+
+.btn-secondary {
+  font-weight: 500;
+  color: var(--blue);
+}
+
+.required-box {
+  font-size: 0.875rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.required-box > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.image {
+  padding-top: 2rem;
+  width: 50%;
+  min-width: 20rem;
+}
+
+@media screen and (width <= 1024px) {
+  body {
+    padding: 0 2rem;
+  }
+
+  main {
+    flex-direction: column-reverse;
+    gap: 4rem;
+  }
+
+  .text-box {
+    width: 90%;
+  }
+
+  .image {
+    padding: 0;
+    width: 50%;
+  }
+}
+
+@media screen and (width <= 640px) {
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: transparent;
+  }
+
+  .close {
+    display: block;
+    position: fixed;
+    top: 2.1rem;
+    right: 2rem;
+  }
+
+  .navbar {
+    min-height: 160%;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    padding: 6rem 0;
+    flex-direction: column;
+    justify-content: start;
+    gap: 2rem;
+    transition: all 0.3s ease-in;
+  }
+
+  .visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .list {
+    flex-direction: column;
+  }
+
+  .item-list > a {
+    font-size: 3rem;
+  }
+
+  .image {
+    width: 100%;
+  }
+
+  main {
+    min-height: 10vh;
+  }
+}
